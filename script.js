@@ -27,7 +27,7 @@ async function getQuote() {
   try {
     const res = await fetch('https://api.quotable.io/random')
     let data = await res.json()
-    console.log(data)
+    // console.log(data)
     let quote = data.content
     let author = data.author
     if (quoteTemplate.textContent == quote) {
