@@ -25,10 +25,11 @@ function toggleLoader() {
 async function getQuote() {
   toggleLoader()
   try {
-    const res = await fetch('https://goquotes-api.herokuapp.com/api/v1/random?count=1')
+    const res = await fetch('https://api.quotable.io/random')
     let data = await res.json()
-    let quote = data.quotes[0].text
-    let author = data.quotes[0].author
+    console.log(data)
+    let quote = data.content
+    let author = data.author
     if (quoteTemplate.textContent == quote) {
       console.log('---------------- its the same quote, get another')
       return getQuote()
